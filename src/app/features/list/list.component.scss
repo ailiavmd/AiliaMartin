@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .table-header {
+        display: flex;
+        margin-bottom: 20px;
+        justify-content: space-between;
+    }
+
+    th.logo {
+        min-width: unset;
+        width: 100px;
+    }
+
+    td {
+        img {
+            width: 70px;
+        }
+    }
+}

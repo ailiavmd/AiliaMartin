@@ -1,0 +1,31 @@
+<div class="table-header">
+    <app-search
+    (changed)="query = $event" />
+
+    <a class="button primary" routerLink="create">Agregar</a>
+</div>
+
+<app-table
+[source]="products"
+[query]="query"
+[rowTemplate]="row">
+
+    <ng-container table-header>
+        <th class="logo">Logo</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Fecha de liberación</th>
+        <th>Fecha de reestructuración</th>
+    </ng-container>
+
+    <ng-template #row let-product>
+        <tr>
+            <td><img [src]="product.logo" /></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+    </ng-template>
+
+</app-table>

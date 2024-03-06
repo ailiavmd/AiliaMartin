@@ -1,0 +1,23 @@
+:host {
+
+    display: flex;
+    padding: 120px 0;
+    min-height: 100vh;
+
+    header {
+        background: white;
+        padding: 30px;
+        display: block;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9;
+    }
+    
+    main {
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 100%;
+    }
+}

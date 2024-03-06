@@ -1,0 +1,7 @@
+<div [class.invalid]="errors.length" class="control-wrapper">
+    <ng-content></ng-content>
+
+    @for (error of errors; track error) {
+        <p class="validation-error">{{ error | validationMessage }}</p>
+    }
+</div>

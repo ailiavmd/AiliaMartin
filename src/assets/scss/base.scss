@@ -1,0 +1,35 @@
+:root {
+    --dark-blue: #0f265c;
+    --yellow: #f5df66;
+    --red: #e25858;
+    --text-color: #434347;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Sofia Sans', Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    color: var(--text-color);
+    background: #f4f6f9;
+}
+
+img {
+    max-width: 100%;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 16px 20px;
+    border: 2px solid #dddde0;
+    border-radius: 5px;
+    width: 100%;
+    font-size: .9rem;
+}

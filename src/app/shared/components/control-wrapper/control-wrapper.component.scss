@@ -1,0 +1,15 @@
+.invalid {
+    label {
+        color: var(--red);
+    }
+
+    input {
+        border-color: var(--red);
+        outline-color: var(--red);
+    }
+}
+
+.validation-error {
+    margin: 10px 0 0;
+    color: var(--red);
+}

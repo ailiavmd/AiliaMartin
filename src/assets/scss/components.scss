@@ -1,0 +1,23 @@
+button, a {
+
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px 25px;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: .9rem;
+
+    &.primary {
+        background: var(--yellow);
+    }
+
+    &.secondary {
+        color: var(--dark-blue);
+        background: #eaecf2;
+        border-color: #dfe3ec;
+    }
+}

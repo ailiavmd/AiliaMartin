@@ -1,0 +1,42 @@
+<div class="background">
+    @if (_source | tableFilter:query; as filtered) {
+
+        <div class="table-container">
+    
+            <table>
+    
+                <thead>
+                    <tr>
+                        <ng-content select="[table-header]"></ng-content>
+                    </tr>
+                </thead>
+    
+                <tbody>
+    
+                    @for (row of filtered | paginate:currentPage:pageLength; track row.id) {
+                        <ng-container
+                        [ngTemplateOutletContext]="{ $implicit: row }"
+                        [ngTemplateOutlet]="rowTemplate"></ng-container>
+                    }
+    
+                    @empty {
+                        <tr>
+                            <td [attr.colspan]="totalColumns">No hay registros</td>
+                        </tr>
+                    }
+    
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="table-navigation">
+            <b>{{ filtered.length }} Resultados</b>
+    
+            <select>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+    } 
+</div>

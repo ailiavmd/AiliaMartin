@@ -1,0 +1,36 @@
+:host {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+
+    .form-container {
+        background: white;
+        padding: 30px;
+
+        h2 {
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 20px;
+            margin-left: -30px;
+            margin-right: -30px;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-actions {
+            margin-top: 80px;
+            text-align: center;
+
+            .button {
+                margin: 0 40px;
+            }
+        }
+    }
+}
