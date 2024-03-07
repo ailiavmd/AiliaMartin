@@ -5,27 +5,46 @@
     <a class="button primary" routerLink="create">Agregar</a>
 </div>
 
-<app-table
-[source]="products"
-[query]="query"
-[rowTemplate]="row">
+@if (products) {
+    <app-table
+    [source]="products"
+    [query]="query"
+    [rowTemplate]="row"
+    [totalColumns]="6">
 
-    <ng-container table-header>
-        <th class="logo">Logo</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Fecha de liberación</th>
-        <th>Fecha de reestructuración</th>
-    </ng-container>
+        <ng-container table-header>
+            <th class="logo">Logo</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Fecha de liberación</th>
+            <th>Fecha de reestructuración</th>
+            <th class="menu"></th>
+        </ng-container>
 
-    <ng-template #row let-product>
-        <tr>
-            <td><img [src]="product.logo" /></td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
-        </tr>
-    </ng-template>
+        <ng-template #row let-product>
+            <tr>
+                <td><img [src]="product.logo" /></td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+                <td>
+                    <app-table-dropdown>
+                        <ng-container label><i class="bi bi-three-dots-vertical"></i></ng-container>
+                        <ul menu>
+                            <li><a routerLink="{{ product.id }}">Editar</a></li>
+                            <li><button (click)="deleteProduct(product)">Eliminar</button></li>
+                        </ul>
+                    </app-table-dropdown>
+                </td>
+            </tr>
+        </ng-template>
 
-</app-table>
+    </app-table>
+}
+
+@else {
+    <div class="loading-view">
+        <span class="loader"></span>
+    </div>
+}

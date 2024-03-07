@@ -1,0 +1,11 @@
+<div class="dropdown">
+    <button title="Menu" (click)="handleClick($event)">
+        <ng-content select="[label]"></ng-content>
+    </button>
+</div>
+
+@if (expanded) {
+    <div class="dropdown-container">
+        <ng-content select="[menu]"></ng-content>
+    </div>
+}

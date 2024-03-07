@@ -25,6 +25,8 @@ export class ValidationMessagePipe implements PipeTransform {
         return `El campo debe tener al menos ${error[key]['requiredLength']} caracteres`;
       case 'arraymin':
         return `El campo debe tener al menos ${error[key]['requiredLength']} elemento(s).`;
+      case 'custom':
+          return error[key].message;
       default:
         return 'Campo inválido';
     }

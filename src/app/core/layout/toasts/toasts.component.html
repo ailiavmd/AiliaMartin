@@ -1,0 +1,33 @@
+<div class="toast-container">
+
+    @for(toast of service.toasts$ | async; track toast.id) {
+
+        @switch(toast.type){
+            @case('success') {
+                <div class="toast success">
+                    <i class="bi bi-check-circle-fill"></i>
+                    {{ toast.message }}
+                    <button (click)="service.dismiss(toast)">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+            }
+            @case('error') {
+                <div class="toast error">
+                    <i class="bi bi-x-circle-fill"></i>
+                    {{ toast.message }}
+                    <button (click)="service.dismiss(toast)">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+            }
+            @case('loading') {
+                <div class="toast">
+                    <span class="loader"></span>
+                    {{ toast.message }}
+                </div>
+            }
+        }
+    }
+
+</div>

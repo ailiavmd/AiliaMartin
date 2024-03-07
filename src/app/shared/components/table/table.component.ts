@@ -2,12 +2,16 @@ import { Component, ElementRef, Input, TemplateRef, ViewEncapsulation } from '@a
 import { TableFilterPipe } from '../../pipes/table-filter.pipe';
 import { PaginatePipe } from '../../pipes/paginate.pipe';
 import { CommonModule } from '@angular/common';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-table',
 	standalone: true,
 	imports: [
 		CommonModule,
+		FormsModule,
+		PaginationComponent,
 		TableFilterPipe,
 		PaginatePipe
 	],
@@ -23,13 +27,9 @@ export class TableComponent {
 
 	pageLength = 5;
 
-	totalColumns!: number;
+	@Input() totalColumns!: number;
 
-	@Input() set source(source: any[]) {
-		this._source = [ ...source ];
-		const ths = this.host.nativeElement.querySelectorAll('thead th');
-		this.totalColumns = ths.length;
-	}
+	@Input() source: any;
 
 	@Input() query = '';
 

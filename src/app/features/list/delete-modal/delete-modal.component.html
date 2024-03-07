@@ -1,0 +1,10 @@
+<app-modal (overlayClick)="close()">
+    <strong>
+        ¿Estás seguro de eliminar el producto {{ product.name }}?
+    </strong>
+
+    <div class="delete-actions">
+        <button class="button secondary" type="button" (click)="close()">Cancelar</button>
+        <button class="button primary" type="button" (click)="deleteProduct()" [disabled]="loading">Confirmar</button>
+    </div>
+</app-modal>

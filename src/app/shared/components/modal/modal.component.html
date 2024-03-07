@@ -1,1 +1,7 @@
-<p>modal works!</p>
+<div (click)="overlayClick.emit()" class="overlay">
+    <div (click)="$event.stopPropagation()" class="modal">
+        <div class="modal-content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

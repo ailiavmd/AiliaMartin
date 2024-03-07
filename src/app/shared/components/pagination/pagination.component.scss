@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    button {
+        cursor: pointer;
+        padding: 0;
+        border: none;
+        font-size: 1.3rem;
+        display: inline-flex;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background: #eee;
+        align-items: center;
+        justify-content: center;
+
+        &[disabled] {
+            pointer-events: none;
+        }
+
+        i {
+            line-height: 0.8rem;
+        }
+    }
+}

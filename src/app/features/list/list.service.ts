@@ -17,4 +17,8 @@ export class ListService {
 	getProducts() {
 		return this.http.get<Product[]>(`${this.url}`);
 	}
+
+	deleteProduct(id: string) {
+		return this.http.delete(`${this.url}?id=${id}`, {responseType: 'text'});
+	}
 }

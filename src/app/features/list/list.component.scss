@@ -8,6 +8,8 @@
         display: flex;
         margin-bottom: 20px;
         justify-content: space-between;
+        gap: 10px;
+        align-items: center;
     }
 
     th.logo {
@@ -15,9 +17,43 @@
         width: 100px;
     }
 
+    th.menu {
+        min-width: unset;
+        width: 50px;
+    }
+
     td {
         img {
             width: 70px;
         }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+    
+            a, button {
+                border: none;
+                padding: 10px 20px;
+                display: block;
+                text-align: center;
+                width: 100%;
+                text-decoration: none;
+                font-size: .9rem;
+                color: inherit;
+    
+                &:hover {
+                    background: #eaecf2;
+                }
+            }
+        }
+    }
+
+    .loading-view {
+        background: white;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

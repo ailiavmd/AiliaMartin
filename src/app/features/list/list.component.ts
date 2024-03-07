@@ -5,6 +5,9 @@ import { TableComponent } from '../../shared/components/table/table.component';
 import { Product } from '../../shared/models';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TableDropdownComponent } from '../../shared/components/table-dropdown/table-dropdown.component';
+import { ModalService } from '../../shared/services/modal.service';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 @Component({
 	selector: 'app-list',
@@ -13,7 +16,8 @@ import { RouterModule } from '@angular/router';
 		CommonModule,
 		RouterModule,
 		SearchComponent,
-		TableComponent
+		TableComponent,
+		TableDropdownComponent
 	],
 	templateUrl: './list.component.html',
 	styleUrl: './list.component.scss'
@@ -25,30 +29,23 @@ export class ListComponent implements OnInit {
 	products!: Product[];
 
 	constructor(
-		private service: ListService
+		private service: ListService,
+		private modal: ModalService
 	) { }
 
 	ngOnInit(): void {
-		// this.service.getProducts()
-		// .subscribe(data => this.products = data);
+		this.getProducts();
+	}
 
-		this.products = [
-			{
-				id: 'trj-crd',
-				name: 'Tarjeta de Credito',
-				description: 'Tarjeta de consumo bajo la modalidad de credito',
-				logo: 'https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg',
-				date_release: new Date(),
-				date_revision: new Date()
-			},
-			{
-				id: 'trj-crd2',
-				name: 'Tarjeta de Credito 2',
-				description: 'Tarjeta de consumo bajo la modalidad de credito',
-				logo: 'https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg',
-				date_release: new Date(),
-				date_revision: new Date()
-			}
-		];
+	getProducts() {
+		this.service.getProducts()
+		.subscribe(data => this.products = data);
+	}
+
+	deleteProduct(product: Product) {
+		const ref = this.modal.open(DeleteModalComponent, { product });
+		ref.then(res => {
+			if (res) this.getProducts();
+		})
 	}
 }

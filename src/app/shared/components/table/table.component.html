@@ -1,5 +1,5 @@
 <div class="background">
-    @if (_source | tableFilter:query; as filtered) {
+    @if (source | tableFilter:query; as filtered) {
 
         <div class="table-container">
     
@@ -31,11 +31,17 @@
     
         <div class="table-navigation">
             <b>{{ filtered.length }} Resultados</b>
+
+            <app-pagination
+            [currentPage]="currentPage"
+            [total]="filtered.length"
+            [pageLength]="pageLength"
+            (pageChanged)="this.currentPage = $event" />
     
-            <select>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
+            <select [(ngModel)]="pageLength" (ngModelChange)="currentPage = 1">
+                <option [ngValue]="5">5</option>
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="20">20</option>
             </select>
         </div>
     } 
