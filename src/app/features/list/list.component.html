@@ -32,7 +32,7 @@
                     <app-table-dropdown>
                         <ng-container label><i class="bi bi-three-dots-vertical"></i></ng-container>
                         <ul menu>
-                            <li><a routerLink="{{ product.id }}">Editar</a></li>
+                            <li><a routerLink="{{ product.id }}" [state]="{ product }">Editar</a></li>
                             <li><button (click)="deleteProduct(product)">Eliminar</button></li>
                         </ul>
                     </app-table-dropdown>

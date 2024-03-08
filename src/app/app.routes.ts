@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './features/list/list.component';
 import { CreateComponent } from './features/create/create.component';
+import { EditComponent } from './features/edit/edit.component';
 
 export const routes: Routes = [
     {
@@ -10,5 +11,9 @@ export const routes: Routes = [
     {
         path: 'create',
         component: CreateComponent
+    },
+    {
+        path: ':id',
+        component: EditComponent
     }
 ];

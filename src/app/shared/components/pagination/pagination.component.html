@@ -1,9 +1,9 @@
-<button title="left" [disabled]="currentPage === 1">
-    <i class="bi bi-caret-left-fill" (click)="handlePrev()"></i>
+<button title="left" [disabled]="currentPage === 1" (click)="handlePrev()">
+    <i class="bi bi-caret-left-fill" ></i>
 </button>
 
 <p>{{ currentPage }} / {{ totalPages() }}</p>
 
-<button title="right" [disabled]="currentPage === totalPages()">
-    <i class="bi bi-caret-right-fill" (click)="handleNext()"></i>
+<button title="right" [disabled]="currentPage === totalPages()" (click)="handleNext()">
+    <i class="bi bi-caret-right-fill"></i>
 </button>

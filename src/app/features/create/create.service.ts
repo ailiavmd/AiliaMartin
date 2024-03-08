@@ -17,4 +17,8 @@ export class CreateService {
   create(payload: Product) {
     return this.http.post(this.url, payload);
   }
+
+  verify(id: string) {
+    return this.http.get<boolean>(`${this.url}/verification?id=${id}`);
+  }
 }

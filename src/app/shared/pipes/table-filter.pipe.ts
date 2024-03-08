@@ -16,14 +16,14 @@ export class TableFilterPipe implements PipeTransform {
 		let copy = [...arr];
 	
 		texts.forEach(t => {
-		  copy = copy.filter(el => {
-			for (const key of keys) {
-			  if (String(el[key]).toLowerCase().includes(t.toLowerCase())) return true;
-			}
-			return false;
-		  });
+			copy = copy.filter(el => {
+				for (const key of keys) {
+					if (String(el[key]).toLowerCase().includes(t.toLowerCase())) return true;
+				}
+				return false;
+			});
 		});
 	
 		return copy;
-	  }
+	}
 }

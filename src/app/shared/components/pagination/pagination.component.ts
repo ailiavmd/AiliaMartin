@@ -10,7 +10,10 @@ import { Component, EventEmitter, Input, Output, computed, input } from '@angula
 })
 export class PaginationComponent {
 
-  totalPages = computed(() => Math.ceil(this.total() / this.pageLength()));
+  totalPages = computed(() => {
+    if (this.total() === 0) return 1;
+    return Math.ceil(this.total() / this.pageLength());
+  });
 
   pageLength = input.required<number>();
 

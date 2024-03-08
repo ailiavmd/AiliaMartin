@@ -23,7 +23,7 @@ export class ControlWrapperComponent {
     
     if (!control) { return; }
 
-    control.valueChanges
+    control.statusChanges
       .pipe(takeUntil(this.unsubscriber$))
       .subscribe(() => {
         if (control.errors) {

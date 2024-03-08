@@ -10,8 +10,6 @@ export class ToastService {
 	private _toasts$ = new BehaviorSubject<Toast[]>([]);
 	toasts$: Observable<Toast[]> = this._toasts$.asObservable();
 
-	constructor() { }
-
 	success(message = 'Operación exitosa') {
 		this.add('success', message);
 	}
